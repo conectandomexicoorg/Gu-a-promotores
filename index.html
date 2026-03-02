@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotor Digital: Tu Primer Ingreso en 7 Días | Conectando México</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --verde: #2ECC71;
+            --azul: #3498DB;
+            --dorado: #F1C40F;
+            --blanco: #FFFFFF;
+            --oscuro: #1A1A1A;
+            --gris: #F5F5F5;
+            --sombra: rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--oscuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--azul) 0%, var(--verde) 100%);
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop') center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--blanco);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.3rem;
+            color: var(--blanco);
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--dorado);
+            color: var(--oscuro);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-3d {
+            display: inline-block;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--verde);
+            color: var(--blanco);
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2), 0 15px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 0 rgba(0, 0, 0, 0.2), 0 20px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2), 0 8px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--azul);
+            color: var(--blanco);
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2), 0 12px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 0 rgba(0, 0, 0, 0.2), 0 15px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2), 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* SECCIONES GENERALES */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--oscuro);
+        }
+
+        section > p:first-of-type {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* MÓDULO 1: MENTALIDAD */
+        .modulo1 {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--verde);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--verde);
+        }
+
+        .quiz-container {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            margin-top: 30px;
+        }
+
+        .quiz-question {
+            margin-bottom: 25px;
+        }
+
+        .quiz-question label {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: var(--gris);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-question label:hover {
+            background: #e8f8f5;
+            border-color: var(--verde);
+        }
+
+        .quiz-question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-result {
+            display: none;
+            background: linear-gradient(135deg, var(--verde) 0%, var(--azul) 100%);
+            color: var(--blanco);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            animation: slideIn 0.5s ease;
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        /* MÓDULO 2: DEMO PERSONALIZADO */
+        .modulo2 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--blanco);
+        }
+
+        .modulo2 h2,
+        .modulo2 > p {
+            color: var(--blanco);
+        }
+
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dorado);
+            margin-bottom: 10px;
+        }
+
+        .step h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .badge-destacado {
+            background: var(--dorado);
+            color: var(--oscuro);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 700;
+            margin: 30px 0;
+            font-size: 1.1rem;
+        }
+
+        .mensaje-clave {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--dorado);
+            font-size: 1.1rem;
+            font-style: italic;
+            margin: 30px 0;
+        }
+
+        /* MÓDULO 3: HERRAMIENTAS */
+        .modulo3 {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .tool-card {
+            background: var(--blanco);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--azul);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--azul);
+        }
+
+        .btn-ver-recurso {
+            background: var(--azul);
+            color: var(--blanco);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ver-recurso:hover {
+            background: var(--verde);
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-close {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--oscuro);
+        }
+
+        /* MÓDULO 4: SIMULADOR */
+        .modulo4 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: var(--blanco);
+        }
+
+        .modulo4 h2,
+        .modulo4 > p {
+            color: var(--blanco);
+        }
+
+        .scenario {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .scenario h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--blanco);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: var(--dorado);
+            transform: translateX(10px);
+        }
+
+        .feedback {
+            display: none;
+            background: var(--dorado);
+            color: var(--oscuro);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: 600;
+            animation: slideIn 0.3s ease;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        /* MÓDULO 5: GANANCIAS */
+        .modulo5 {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .comisiones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .comision-card {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            border-top: 5px solid var(--verde);
+            transition: all 0.3s ease;
+        }
+
+        .comision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .comision-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .comision-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--verde);
+        }
+
+        .comision-amount {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dorado);
+            margin: 15px 0;
+        }
+
+        .calculadora {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .calculadora h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--oscuro);
+        }
+
+        .ventas-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .venta-btn {
+            padding: 12px 25px;
+            border: 2px solid var(--azul);
+            background: var(--blanco);
+            color: var(--azul);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .venta-btn:hover,
+        .venta-btn.active {
+            background: var(--azul);
+            color: var(--blanco);
+            transform: scale(1.1);
+        }
+
+        .resultado-ganancias {
+            display: none;
+            background: linear-gradient(135deg, var(--verde) 0%, var(--azul) 100%);
+            color: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            animation: slideIn 0.5s ease;
+        }
+
+        .resultado-ganancias.show {
+            display: block;
+        }
+
+        .resultado-ganancias h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .ganancia-total {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: var(--blanco);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn:hover {
+            background: #1FAD56;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* ANIMACIONES */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .cards-container,
+            .tools-grid,
+            .comisiones-grid,
+            .flow-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .ventas-buttons {
+                flex-direction: column;
+            }
+
+            .venta-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="badge">✨ Más de 50 comercios transformados en Puebla</div>
+            <h1>¿Quieres ganar dinero ayudando a comercios de tu colonia?</h1>
+            <p>Sin experiencia, sin inversión. Solo necesitas ganas y un celular. Nosotros ponemos el producto, tú cierras la venta.</p>
+            <button class="btn-3d btn-primary" onclick="document.getElementById('modulo1').scrollIntoView({behavior: 'smooth'})">Comenzar mi Camino →</button>
+        </div>
+    </section>
+
+    <!-- MÓDULO 1: MENTALIDAD -->
+    <section class="modulo1" id="modulo1">
+        <h2>Tu Mentalidad de Promotor</h2>
+        <p>Antes de salir a vender, necesitas la actitud correcta. Aquí están los secretos de los promotores exitosos.</p>
+        
+        <div class="cards-container">
+            <div class="card">
+                <h3>💪 No vendes páginas</h3>
+                <p>Vendes dignidad. Vendes la oportunidad de que el dueño vea su negocio brillar en internet. Eso es lo que compran.</p>
+            </div>
+            <div class="card">
+                <h3>🎯 Cada "no" te acerca al "sí"</h3>
+                <p>Los mejores promotores no tienen miedo al rechazo. Cada no es una lección, no una derrota. Sigue adelante.</p>
+            </div>
+            <div class="card">
+                <h3>🏘️ Tu primer cliente está a 3 calles</h3>
+                <p>No necesitas buscar lejos. El comercio que necesita tu ayuda está en tu colonia. Camina, observa, identifica.</p>
+            </div>
+        </div>
+
+        <div class="quiz-container">
+            <h3 style="font-family: 'Poppins', sans-serif; margin-bottom: 25px;">🎓 Quiz: ¿Estás Listo?</h3>
+            
+            <div class="quiz-question">
+                <p style="font-weight: 600; margin-bottom: 12px;">1. Un dueño te dice "no tengo dinero". ¿Qué haces?</p>
+                <label><input
