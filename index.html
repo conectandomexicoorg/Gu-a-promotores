@@ -1258,8 +1258,148 @@
         }
 
         function downloadGuide() {
-            showToast('📥 Descarga iniciada...');
-            // En una aplicación real, aquí se descargaría un PDF
+            showToast('📥 Generando PDF...');
+            
+            // Crear contenido del PDF
+            const pdfContent = `
+CONECTANDO MÉXICO - GUÍA COMPLETA PARA PROMOTORES DIGITALES
+========================================================
+
+¿QUÉ ES CONECTANDO MÉXICO?
+--------------------------
+Servicio especializado en la creación de páginas web profesionales para negocios locales.
+
+Paquete Básico: $2,999 MXN
+Incluye:
+✓ Dominio .com
+✓ Hosting por 1 año
+✓ Correos ilimitados
+✓ Diseño profesional
+✓ Optimización para móviles
+
+
+COMISIONES POR VENTA
+-------------------
+Paquete Básico ($2,999)     → Tu Comisión: $1,000
+Paquete Avanzado ($4,999)   → Tu Comisión: $1,500
+Paquete Premium ($7,999)    → Tu Comisión: $2,500
+
+
+PROCESO DE 5 PASOS
+-----------------
+1. Captura datos del comercio
+   - Nombre del negocio
+   - Dirección
+   - Horarios de atención
+   - Colores de marca
+   - Teléfono y WhatsApp
+
+2. Envía datos por WhatsApp
+   - Al equipo de Conectando México
+   - Incluye fotos del local (opcional)
+
+3. Cliente recibe demo en 24 horas
+   - Una página web de prueba personalizada
+   - Sin compromiso
+   - Muestra el potencial del negocio
+
+4. Cliente paga
+   - Si le gusta el demo, procede al pago
+   - Nosotros entregamos la página web final
+   - Incluye capacitación básica
+
+5. Tú recibes comisión
+   - Directamente a tu cuenta
+   - Después de que el cliente paga
+
+
+CONSEJOS PARA TRIUNFAR
+---------------------
+✓ Identifica negocios sin página web en tu colonia
+✓ Muestra ejemplos reales de páginas que hemos creado
+✓ Enfatiza los beneficios: más clientes, mejor imagen, presencia en Google
+✓ Ofrece el demo sin compromiso - es tu mejor herramienta de venta
+✓ Haz seguimiento después de 24-48 horas
+✓ No desistas ante un "no" - puede ser un "no por ahora"
+✓ Mantén un registro de tus contactos
+✓ Sé profesional y puntual
+✓ Cree en el producto - es realmente valioso
+
+
+PREGUNTAS FRECUENTES
+-------------------
+
+P: ¿Cuándo cobro mi comisión?
+R: Cuando el cliente paga y nosotros entregamos la página web.
+
+P: ¿Qué incluye el paquete básico?
+R: Página web + dominio .com + hosting 1 año + correos ilimitados
+
+P: ¿Qué hago después de capturar los datos?
+R: Los envías por WhatsApp al equipo de Conectando México
+
+P: ¿Qué es el demo de 24 horas?
+R: Una página de prueba que se entrega al cliente sin compromiso
+
+P: ¿Cuánto gano por venta del paquete básico?
+R: $1,000 MXN
+
+
+CÁLCULO DE PROYECCIONES
+-----------------------
+
+Ejemplo 1 - Principiante (2 ventas/mes):
+2 × $1,000 = $2,000/mes = $24,000/año
+
+Ejemplo 2 - Intermedio (5 ventas/mes):
+5 × $1,000 = $5,000/mes = $60,000/año
+
+Ejemplo 3 - Avanzado (10 ventas/mes):
+10 × $1,000 = $10,000/mes = $120,000/año
+
+Nota: Estos cálculos son solo con paquetes básicos.
+Si vendes paquetes avanzados o premium, tus ganancias serán mayores.
+
+
+TU RUTA DE ÉXITO
+----------------
+□ Estudiar toda la guía de Conectando México
+□ Practicar el pitch de ventas
+□ Identificar 10 negocios potenciales en tu colonia
+□ Capturar primeros datos de clientes
+□ Enviar datos por WhatsApp al equipo
+□ Dar seguimiento en 24-48 horas
+□ Celebrar tu primera venta
+□ Escalar a 5 ventas mensuales
+□ Llegar a 10 ventas mensuales
+□ Convertirte en promotor estrella
+
+
+CONTACTO Y SOPORTE
+------------------
+Equipo de Conectando México
+WhatsApp: +52 222 866 6665
+Correo: soporte@conectandomexico.com
+
+Recuerda: Estamos contigo en cada paso del camino.
+Tu éxito es nuestro éxito.
+
+========================================================
+Generado desde: Conectando México - Herramienta de Promotores
+Fecha: ${new Date().toLocaleDateString('es-MX')}
+            `;
+
+            // Crear un Blob con el contenido
+            const blob = new Blob([pdfContent], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Guia_Conectando_Mexico_' + new Date().getTime() + '.txt';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+            
+            showToast('✓ Guía descargada correctamente');
         }
 
         function contactSupport() {
